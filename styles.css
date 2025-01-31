@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2.5em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.status {
+    color: #ffffffaa;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #2c2c2c;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: #3d3d3d;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    background: #4a4a4a;
+    transform: scale(1.02);
+}
+
+.cell.x {
+    color: #ff4757;
+    text-shadow: 0 0 15px #ff475780;
+}
+
+.cell.o {
+    color: #2ed573;
+    text-shadow: 0 0 15px #2ed57380;
+}
+
+.cell.win {
+    animation: win-glow 1s ease-in-out infinite;
+}
+
+@keyframes win-glow {
+    0%, 100% { background-color: rgba(255, 234, 167, 0.1); }
+    50% { background-color: rgba(255, 234, 167, 0.3); }
+}
+
+.restart-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .cell {
+        font-size: 2.5rem;
+    }
+    
+    .status {
+        font-size: 1.2rem;
+    }
+}
